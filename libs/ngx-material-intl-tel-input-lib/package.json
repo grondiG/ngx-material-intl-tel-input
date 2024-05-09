@@ -1,6 +1,6 @@
 {
-  "name": "ngx-material-intl-tel-input",
-  "version": "17.3.0",
+  "name": "@grondi/ngx-material-intl-tel-input",
+  "version": "1.0.0",
   "license": "MIT",
 	"repository": {
 		"type": "git",

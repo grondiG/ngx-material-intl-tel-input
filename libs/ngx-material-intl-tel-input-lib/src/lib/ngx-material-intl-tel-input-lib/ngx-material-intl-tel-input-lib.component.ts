@@ -5,6 +5,7 @@ import {
   Input,
   OnDestroy,
   OnInit,
+  Output,
   ViewChild
 } from '@angular/core';
 import {
@@ -19,7 +20,7 @@ import {
   MatSelectModule
 } from '@angular/material/select';
 import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
-import { ReplaySubject, Subject, take, takeUntil } from 'rxjs';
+import { Observable, ReplaySubject, Subject, take, takeUntil } from 'rxjs';
 import { CountryCode } from '../data/country-code';
 import { Country } from '../types/country.model';
 import { PhoneNumberFormat, PhoneNumberUtil } from 'google-libphonenumber';
@@ -34,7 +35,7 @@ import { CountryISO } from '../enums/country-iso.enum';
 import { CountryDataService } from '../services/country-data/country-data.service';
 
 @Component({
-  selector: 'ngx-material-intl-tel-input',
+  selector: 'ng ngx-material-intl-tel-input',
   standalone: true,
   imports: [
     AsyncPipe,
@@ -113,6 +114,8 @@ export class NgxMaterialIntlTelInputComponent
     invalidNumberError: 'Number is not valid',
     requiredError: 'This field is required'
   };
+  @Output() valueChanges: Observable<string | null> =
+    this.fieldControl.valueChanges;
 
   isFocused = false;
   isLoading = true;
